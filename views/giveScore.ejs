@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Give Score</title>
+  <% include ./partials/head %>
+</head>
+<body>
+  
+  <% include ./partials/navbar %>
+  <h4 class="center">Give Score</h2>
+  <h5 class="center"><%= data.Subject.subject_name %></h3>
+  <h6 class="center">Student : <%= data.Student.getFullName() %></h4>
+  
+  <div class="container">
+
+    <form class ="center" action="" method="POST">
+
+      <br>
+      <div class="row">
+
+        <div class="input-field col offset-s4 s4">
+          <input type="text" name="score" required>
+          <label for="score">Score</label>
+        </div>
+        
+      </div>
+        <button class = "btn" type="submit">Submit</button><br>
+      </form>
+
+  </div>
+</body>
+</html>

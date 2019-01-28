@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Subject to Student</title>
+  <% include ./partials/head %>
+</head>
+<body>
+
+  <% include ./partials/navbar%>
+
+  <div class="container">
+    <!-- <h1><%= data.dataValues %></h1> -->
+    <table class="responsive-table">
+
+      <thead>
+        <tr>
+          <th>First name</th>
+          <th>Last_name</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= data.first_name %></td>
+          <td><%= data.last_name %></td>
+          <td><%= data.email %></td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <form class = "center row s6" method="POST">
+      <div class="col">
+        <label>Choose Subject</label>
+        <select name="SubjectId" class >
+          <% subjects.forEach( subject => {%>
+            <option value="<%= subject.id%>"><%= subject.subject_name%></option>
+          <% }) %>
+        </select>
+        <button class="btn" type="submit">Add Subject</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

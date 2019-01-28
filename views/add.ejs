@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Add <%= model%>
+  </title>
+  <% include ./partials/head %>
+</head>
+
+<body>
+
+  <% include ./partials/navbar %>
+
+  <div class="container">
+  <h3>Input <%= model%> Data</h3>
+
+    <form action="" method="POST">
+
+      <% if(model !== 'Subject') { %>
+
+      <div class="row">
+        <div class="input-field col s8">
+          <input type="text" name="first_name" required>
+          <label for="first name">First Name</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s8">
+          <input type="text" name="last_name" required>
+          <label for="last name">Last Name</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s8">
+          <input type="text" name="email" required>
+          <label for="email">Email</label>
+        </div>
+      </div>
+
+    <% } else { %>
+
+    <div class = "row">
+      
+      <div class = "input-field col s8">
+        <input type="text" name="subject_name" required><br>
+        <label for="name">Subject Name</label><br>
+      </div>
+
+    </div>
+
+    <%}%>
+
+    <button class = "btn" type="submit">Submit</button><br>
+    
+    </form>
+
+    <% include ./partials/err%>
+  </div>
+
+</body>
+
+</html>

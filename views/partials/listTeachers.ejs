@@ -1,0 +1,23 @@
+<br>
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Subject</th>
+          <th scope="col">Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% allData.forEach( (data, index) =>{ %>
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><%= data.first_name  %></td>
+            <td><%= data.last_name  %></td>
+            <td><%= data.email  %></td>
+            <td><%= data.checkSubject() %></td>
+            <td><a href="/<%= model%>s/edit/<%= data.id%>">Edit</a>  |  <a href="/<%=model%>s/delete/<%= data.id%>" onclick="return confirm('Are you sure?')">Delete</a></td>
+          </tr>
+          <% }) %>
+      </tbody>

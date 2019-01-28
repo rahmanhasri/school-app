@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Subject Enrolled Students</title>
+  <% include ./partials/head%>
+</head>
+<body>
+  
+  <% include ./partials/navbar %>
+  <div class="container">
+    <h2 class="center"> <%= data.subject_name %> </h2>
+    <h5 class="center"><a href="/subjects">return to subject list</a></h5>
+
+    <table class="responsive-table">
+      <thead>
+        <tr>
+          <th scope="col">Student Name</th>
+          <th scope="col">Score</th>
+        </tr>
+      </thead>
+      <tbody>
+          <% data.dataValues.Students.forEach( student => { %>
+          
+            <tr>
+              <th><%= student.getFullName() %></th>
+              <th>
+                  <% if(student.StudentSubject.score) { %>
+                    <%= student.StudentSubject.score %>
+                  <% } else { %>
+                    <a href="/subjects/<%= student.StudentSubject.id %>/give-score"> Give Score</a>
+                  <% } %>
+              </th>
+            </tr>
+          <% }) %>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>

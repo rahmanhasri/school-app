@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Edit <%= model%></title>
+  <% include ./partials/head%>
+</head>
+<body>
+
+  <% include ./partials/navbar%>
+  
+  <div class="container">
+    <h2>Edit <%= model%> Data</h2>
+    
+    <form action="<%= data.id%>" method="POST">
+
+    <% if(model !== 'Subject') { %>      
+
+      <div class = "row">
+        <div class="input-field col s8">
+          <input type="text" name="first_name" value="<%= data.first_name%>"><br>
+          <label for="first_name">First Name</label><br>
+        </div>
+      </div>
+
+      <div class = "row">
+        <div class="input-field col s8">
+          <input type="text" name="last_name" value="<%= data.last_name%>"><br>
+          <label for="last_name">Last Name</label><br>
+        </div>
+      </div>
+
+      <div class = "row" >
+        <div class = "input-field col s8">
+          <input type="text" name="email" value="<%= data.email%>"><br>
+          <label for="email">Email</label><br>
+        </div>
+      </div>
+
+      <% if(model === 'Teacher') { %>
+        <label>Subject Class</label>
+        <select name="SubjectId" class >
+          <% subjects.forEach( subject => {%>
+            <option value="<%= subject.id%>"><%= subject.subject_name%></option>
+          <% }) %>
+        </select>
+      <% } %>
+      
+    <% } else {%>
+
+      <div class = "row">
+        <div class = "input-field col s8">
+          <input type="text" name="subject_name" value="<%= data.subject_name%>"><br>
+          <label for="subject_name">Subject Name</label><br>
+        </div>
+      </div>
+
+    <% }%>
+      <button class = "btn" type="submit">Submit</button><br>
+
+    </form>
+
+    <% include ./partials/err%>
+  </div>
+</body>
+</html>

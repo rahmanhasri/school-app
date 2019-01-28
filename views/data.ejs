@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= model%>s Data</title>
+  <% include ./partials/head%>
+</head>
+<body>
+
+  <% include ./partials/navbar%>
+
+  <div class="container">
+    <h2 align="center"><%= model %>s  Data</h2>
+    <h4 align="center"><a href="/<%= model%>s/add">Add <%= model%></a></h4>
+    <table class="responsive-table">
+    <% if(model === 'Teacher') { %>
+      <% include ./partials/listTeachers %>
+    <% } else if(model === 'Subject'){ %>
+      <% include ./partials/listSubject %>
+    <% } else if(model === 'Student') {%>
+      <% include ./partials/listStudent %>
+    <% } %>
+    </table>
+          
+  </div>
+  
+</body>
+</html>

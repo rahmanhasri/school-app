@@ -1,0 +1,27 @@
+
+      <% if(model === 'Teacher') { %>
+        
+        <div class="row">
+          <div class="input-field col s8">
+            <select name="SubjectId">
+              <% subjects.forEach( subject => {%>
+              
+                <option value=""></option>
+              <% }) %>
+            </select>
+          </div>
+        </div>
+      <% } %>
+
+            <!-- <% data.Teachers.forEach( (teacher, index) => { %>
+              <li> <%= teacher.getFullName() %></li>
+            <% }) %> -->
+
+            <h1><%= data.dataValues.Teachers[0].getFullName()%> </h1>
+
+
+                <% if(student.StudentSubject.dataValues.score) { %>
+                  <%= student.StudentSubject.dataValues %>
+                <% } else { %>
+                  <a href="/subjects/<%= student.StudentSubject.dataValues.id %>/give-score"> Give Score</a>
+                <% } %>

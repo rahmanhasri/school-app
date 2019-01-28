@@ -1,0 +1,28 @@
+<thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Subject Name</th>
+      <th scope="col">Teachers</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% allData.forEach( (data, index) => { %>
+      <tr>
+        <td><%= index + 1%></td>
+        <td><%= data.subject_name  %></td>
+        <!-- <td><a href="/subjects/edit/<%= data.id%>">Edit</a>  |  <a href="/subjects/delete/<%= data.id%>" onclick="return confirm('Are you sure?')">Delete</a></td> -->
+        <td>
+          <% if(data.dataValues.Teachers.length) { %>
+
+            <ol>
+              <% data.dataValues.Teachers.forEach( (teacher, index) => { %>
+                <li> <%= teacher.getFullName() + ' (' + teacher.id + ')' %></li>
+              <% }) %>
+            </ol>
+          <% } %>
+        </td>
+        <td><a href="/subjects/<%= data.id%>/enrolled-students">Enrolled Students</a></td>
+      </tr>
+      <% }) %>
+  </tbody>
